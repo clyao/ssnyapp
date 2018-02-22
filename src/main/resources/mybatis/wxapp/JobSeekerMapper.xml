@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssnyapp.wxapp.dao.JobSeekerDao">
+
+	<select id="get" resultType="com.ssnyapp.wxapp.domain.JobSeekerDO">
+		select * from wxapp_jobseeker where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.ssnyapp.wxapp.domain.JobSeekerDO">
+		select * from wxapp_jobseeker
+		<where>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by createDate desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from wxapp_jobseeker
+	</select>
+
+	<insert id="save" parameterType="com.ssnyapp.wxapp.domain.JobSeekerDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wxapp_jobseeker(`userName`, `nation`, `sex`, `marriage`, `school`, `speciality`, `position`, `address`, `telephone`, `email`, `degree`, `brthday`, `createDate`, `state`) values (#{userName}, #{nation}, #{sex}, #{marriage}, #{school}, #{speciality}, #{position}, #{address}, #{telephone}, #{email}, #{degree}, #{brthday}, #{createDate}, #{state})
+	</insert>
+
+	<update id="update" parameterType="com.ssnyapp.wxapp.domain.JobSeekerDO">
+		update wxapp_jobseeker
+		<set>
+			<if test="userName != null">`userName` = #{userName}, </if>
+			<if test="nation != null">`nation` = #{nation}, </if>
+			<if test="sex != null">`sex` = #{sex}, </if>
+			<if test="marriage != null">`marriage` = #{marriage}, </if>
+			<if test="school != null">`school` = #{school}, </if>
+			<if test="speciality != null">`speciality` = #{speciality}, </if>
+			<if test="position != null">`position` = #{position}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="telephone != null">`telephone` = #{telephone}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="degree != null">`degree` = #{degree}, </if>
+			<if test="brthday != null">`brthday` = #{brthday}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="createDate != null">`createDate` = #{createDate}</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="remove">
+		delete from wxapp_jobseeker where id = #{value}
+	</delete>
+
+</mapper>

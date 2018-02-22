@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<div class="col-sm-12">
+							<h4>添加简历</h4>
+						</div>
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">姓名：</label>
+								<div class="col-sm-4">
+									<input id="userName" name="userName" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">户籍：</label>
+								<div class="col-sm-4">
+									<input id="nation" name="nation" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">性别：</label>
+								<div class="col-sm-4">
+									<input id="sex" name="sex" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">婚姻状况：</label>
+								<div class="col-sm-4">
+									<input id="marriage" name="marriage" class="form-control"
+										   type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">毕业院校：</label>
+								<div class="col-sm-4">
+									<input id="school" name="school" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">所学专业：</label>
+								<div class="col-sm-4">
+									<input id="speciality" name="speciality" class="form-control"
+										   type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">求职意向：</label>
+								<div class="col-sm-4">
+									<input id="position" name="position" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">现住地址：</label>
+								<div class="col-sm-4">
+									<input id="address" name="address" class="form-control"
+										   type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">手机号：</label>
+								<div class="col-sm-4">
+									<input id="telephone" name="telephone" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">邮箱：</label>
+								<div class="col-sm-4">
+									<input id="email" name="email" class="form-control"
+										   type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">最高学历：</label>
+								<div class="col-sm-4">
+									<input id="degree" name="degree" class="form-control" type="text">
+								</div>
+								<label class="col-sm-2 control-label">出生日期：</label>
+								<div class="col-sm-4">
+									<input id="brthday" name="brthday" class="form-control"
+										   type="text">
+								</div>
+							</div>
+							<div class="text-center form-group">
+								<button type="button"
+									class="btn btn-primary waves-effect waves-light" type="submit">发布简历</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+
+
+	<script type="text/javascript" src="/js/appjs/wxapp/person/add.js">
+		
+	</script>
+</body>
+</html>
